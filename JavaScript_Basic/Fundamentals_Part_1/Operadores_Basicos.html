@@ -1,0 +1,310 @@
+Operadores básicos, matemáticas
+Conocemos a muchos operadores de la escuela. Son cosas como sumas +, multiplicaciones *, restas -, etc.
+
+En este capítulo, comenzaremos con operadores simples, luego nos concentraremos en aspectos específicos de JavaScript, que no se tratan en la aritmética escolar.
+
+Términos: "unario", "binario", "operando"
+Antes de continuar, comprendamos una terminología común.
+
+Un operando : es a lo que se aplican los operadores. Por ejemplo, en la multiplicación de 5 * 2hay dos operandos: el operando izquierdo es 5y el operando derecho es 2. A veces, la gente llama a estos "argumentos" en lugar de "operandos".
+
+Un operador es unario si tiene un solo operando. Por ejemplo, la negación unaria -invierte el signo de un número:
+
+let x = 1;
+
+x = -x;
+alert( x ); // -1, unary negation was applied
+
+Un operador es binario si tiene dos operandos. El mismo signo negativo también existe en forma binaria:
+let x = 1, y = 3;
+alert( y - x ); // 2, binary minus subtracts values
+
+Se admiten las siguientes operaciones matemáticas:
+
+Además +,
+la resta -,
+multiplicación *,
+división /,
+El resto %,
+Exponenciación **.
+
+Recordatorio %
+El operador restante %, a pesar de su apariencia, no está relacionado con los porcentajes.
+
+El resultado de a % bes el resto de la división entera de apor b.
+
+Por ejemplo:
+alert( 5 % 2 ); // 1, a remainder of 5 divided by 2
+alert( 8 % 3 ); // 2, a remainder of 8 divided by 3
+
+Exponenciación **
+El operador de exponenciación se a ** beleva aa la potencia de b.
+
+En matemáticas escolares, lo escribimos como b .
+
+Por ejemplo:
+alert( 2 ** 2 ); // 2² = 4
+alert( 2 ** 3 ); // 2³ = 8
+alert( 2 ** 4 ); // 2⁴ = 16
+
+Conversión numérica, unaria +
+El plus +existe en dos formas: la forma binaria que usamos anteriormente y la forma unaria.
+
+El unario más o, en otras palabras, el operador más +aplicado a un solo valor, no hace nada a los números. Pero si el operando no es un número, el unario más lo convierte en un número.
+
+Por ejemplo:
+// No effect on numbers
+let x = 1;
+alert( +x ); // 1
+
+let y = -2;
+alert( +y ); // -2
+
+// Converts non-numbers
+alert( +true ); // 1
+alert( +"" );   // 0
+En realidad, hace lo mismo que Number(...), pero es más corto.
+
+La necesidad de convertir cadenas en números surge con mucha frecuencia. Por ejemplo, si obtenemos valores de campos de formulario HTML, generalmente son cadenas. ¿Y si queremos sumarlos?
+
+El binario más los agregaría como cadenas:
+let apples = "2";
+let oranges = "3";
+
+alert( apples + oranges ); // "23", the binary plus concatenates strings
+
+Si queremos tratarlos como números, necesitamos convertirlos y luego sumarlos:
+let apples = "2";
+let oranges = "3";
+
+// both values converted to numbers before the binary plus
+alert( +apples + +oranges ); // 5
+
+// the longer variant
+// alert( Number(apples) + Number(oranges) ); // 5
+
+Precedencia del operador
+Si una expresión tiene más de un operador, el orden de ejecución se define por su precedencia o, en otras palabras, el orden de prioridad predeterminado de los operadores.
+
+De la escuela, todos sabemos que la multiplicación en la expresión 1 + 2 * 2debe calcularse antes de la suma. Esa es exactamente la cuestión de la precedencia. Se dice que la multiplicación tiene mayor precedencia que la suma.
+
+Los paréntesis anulan cualquier precedencia, por lo que si no estamos satisfechos con el orden predeterminado, podemos usarlos para cambiarlo. Por ejemplo, escribe (1 + 2) * 2.
+
+Hay muchos operadores en JavaScript. Cada operador tiene un número de precedencia correspondiente. El que tiene el número más grande se ejecuta primero. Si la precedencia es la misma, el orden de ejecución es de izquierda a derecha.
+
+Aquí hay un extracto de la tabla de precedencia (no necesita recordar esto, pero tenga en cuenta que los operadores unarios son más altos que los binarios correspondientes):
+
+
+Precedencia	Nombre	Firmar
+...	...	...
+17	unario más	+
+17	negación unaria	-
+16	exponenciación	**
+15	multiplicación	*
+15	división	/
+13	adición	+
+13	sustracción	-
+...	...	...
+3	asignación	=
+...	...	...
+
+Asignación
+Observemos que una asignación =también es un operador. Aparece en la tabla de precedencia con la prioridad muy baja de 3.
+
+Por eso, cuando asignamos una variable, como x = 2 * 2 + 1, los cálculos se realizan primero y luego =se evalúa, almacenando el resultado en x.
+
+let x = 2 * 2 + 1;
+
+alert( x ); // 5
+Asignación = devuelve un valor
+El hecho de =ser un operador, no un constructo de lenguaje "mágico", tiene una implicación interesante.
+
+Todos los operadores en JavaScript devuelven un valor. Eso es obvio para +y -, pero también cierto para =.
+
+La llamada x = valueescribe el valueen x y luego lo devuelve .
+
+Aquí hay una demostración que usa una asignación como parte de una expresión más compleja:
+
+let a = 1;
+let b = 2;
+
+let c = 3 - (a = b + 1);
+
+alert( a ); // 3
+alert( c ); // 0
+En el ejemplo anterior, el resultado de la expresión (a = b + 1)es el valor que se le asignó a(es decir 3). Luego se utiliza para evaluaciones adicionales.
+
+Código gracioso, ¿no? Debemos entender cómo funciona, porque a veces lo vemos en bibliotecas de JavaScript.
+
+Aunque, por favor, no escriba el código de esa manera. Estos trucos definitivamente no hacen que el código sea más claro o legible.
+
+Encadenamiento de asignaciones
+Otra característica interesante es la capacidad de encadenar asignaciones:
+
+let a, b, c;
+
+a = b = c = 2 + 2;
+
+alert( a ); // 4
+alert( b ); // 4
+alert( c ); // 4
+
+Las asignaciones encadenadas se evalúan de derecha a izquierda. En primer lugar, la expresión más a la derecha 2 + 2se evalúa y se le asigna a las variables de la izquierda: c, by a. Al final, todas las variables comparten un único valor.
+Una vez más, por motivos de legibilidad, es mejor dividir dicho código en pocas líneas:
+
+c = 2 + 2;
+b = c;
+a = c;
+
+Modificar en el lugar
+A menudo necesitamos aplicar un operador a una variable y almacenar el nuevo resultado en esa misma variable.
+
+Por ejemplo:
+
+let n = 2;
+n = n + 5;
+n = n * 2;
+Esta notación se puede abreviar usando los operadores +=y *=:
+
+let n = 2;
+n += 5; // now n = 7 (same as n = n + 5)
+n *= 2; // now n = 14 (same as n = n * 2)
+
+alert( n ); // 14
+
+
+Breve “modificar y asignar-” existe operadores para todos los operadores aritméticos y bit a bit: /=, -=, etc.
+
+Dichos operadores tienen la misma precedencia que una asignación normal, por lo que se ejecutan después de la mayoría de los demás cálculos:
+
+let n = 2;
+
+n *= 3 + 5;
+
+alert( n ); // 16  (right part evaluated first, same as n *= 8)
+
+Incremento / decremento
+Aumentar o disminuir un número en uno es una de las operaciones numéricas más comunes.
+
+Entonces, hay operadores especiales para ello:
+
+Incremento ++ aumenta una variable en 1:
+
+let counter = 2;
+counter++;        // works the same as counter = counter + 1, but is shorter
+alert( counter ); // 3
+El decremento -- reduce una variable en 1:
+
+let counter = 2;
+counter--;        // works the same as counter = counter - 1, but is shorter
+alert( counter ); // 1
+Importante:
+El incremento / decremento solo se puede aplicar a variables. Intentar usarlo en un valor como 5++dará un error.
+
+Los operadores ++y --se pueden colocar antes o después de una variable.
+
+Cuando el operador va después de la variable, es en “forma de sufijo”: counter++.
+La “forma de prefijo” es cuando el operador va delante de la variable: ++counter.
+Ambas declaraciones hacen lo mismo: aumentar counteren 1.
+
+¿Hay alguna diferencia? Sí, pero solo podemos verlo si usamos el valor devuelto de ++/--.
+
+Aclaremos. Como sabemos, todos los operadores devuelven un valor. El incremento / decremento no es una excepción. La forma de prefijo devuelve el nuevo valor mientras que la forma de sufijo devuelve el valor anterior (antes de incrementar / disminuir).
+
+Para ver la diferencia, aquí tienes un ejemplo:
+
+let counter = 1;
+let a = ++counter; // (*)
+
+alert(a); // 2
+En la línea (*), la forma de prefijo++counter aumenta countery devuelve el nuevo valor 2,. Entonces, los alertespectáculos 2.
+
+Ahora, usemos la forma de sufijo:
+
+let counter = 1;
+let a = counter++; // (*) changed ++counter to counter++
+
+alert(a); // 1
+En la línea (*), el postfix forma counter++también incrementos counterpero vuelve el viejo valor (antes de incremento). Entonces, los alertespectáculos 1.
+
+Para resumir:
+
+Si no se usa el resultado de incremento / decremento, no hay diferencia en qué forma usar:
+
+let counter = 0;
+counter++;
+++counter;
+alert( counter ); // 2, the lines above did the same
+Si queremos aumentar un valor y usar inmediatamente el resultado del operador, necesitamos la forma de prefijo:
+
+let counter = 0;
+alert( ++counter ); // 1
+Si quisiéramos incrementar un valor pero usamos su valor anterior, necesitamos la forma de sufijo:
+
+let counter = 0;
+alert( counter++ ); // 0
+
+Incremento / decremento entre otros operadores
+Los operadores también ++/--se pueden usar dentro de expresiones. Su precedencia es mayor que la de la mayoría de las otras operaciones aritméticas.
+
+Por ejemplo:
+
+let counter = 1;
+alert( 2 * ++counter ); // 4
+Comparar con:
+
+let counter = 1;
+alert( 2 * counter++ ); // 2, because counter++ returns the "old" value
+Aunque técnicamente está bien, esta notación suele hacer que el código sea menos legible. Una línea hace varias cosas, no es bueno.
+
+Mientras lee el código, un escaneo ocular “vertical” rápido puede fácilmente pasar por alto algo como counter++y no será obvio que la variable aumentó.
+
+Aconsejamos un estilo de "una línea, una acción":
+
+let counter = 1;
+alert( 2 * counter );
+counter++;
+
+Operadores bit a bit
+Los operadores bit a bit tratan los argumentos como números enteros de 32 bits y trabajan en el nivel de su representación binaria.
+
+Estos operadores no son específicos de JavaScript. Son compatibles con la mayoría de los lenguajes de programación.
+
+La lista de operadores:
+
+Y ( &)
+O ( |)
+XOR ( ^)
+NO ( ~)
+MAYÚS IZQUIERDA ( <<)
+SHIFT DERECHA ( >>)
+DESPLAZAMIENTO A LA DERECHA DE LLENADO CERO ( >>>)
+Estos operadores se usan muy raramente, cuando necesitamos jugar con números en el nivel más bajo (bit a bit). No necesitaremos estos operadores en el corto plazo, ya que el desarrollo web tiene poco uso de ellos, pero en algunas áreas especiales, como la criptografía, son útiles. Puede leer el capítulo Operadores bit a bit sobre MDN cuando surja la necesidad.
+https://translate.google.com/website?sl=auto&tl=es&u=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators%23Bitwise
+
+
+Coma
+El operador de coma ,es uno de los operadores más raros e inusuales. A veces, se usa para escribir código más corto, por lo que necesitamos saberlo para comprender qué está sucediendo.
+
+El operador de coma nos permite evaluar varias expresiones dividiéndolas con una coma ,. Cada uno de ellos se evalúa pero solo se devuelve el resultado del último.
+
+Por ejemplo:
+
+let a = (1 + 2, 3 + 4);
+
+alert( a ); // 7 (the result of 3 + 4)
+
+La coma tiene una precedencia muy baja
+Tenga en cuenta que el operador de coma tiene una precedencia muy baja, inferior a =, por lo que los paréntesis son importantes en el ejemplo anterior.
+
+Sin ellos: a = 1 + 2, 3 + 4evalúa +primero, sumando los números a = 3, 7, luego el operador de asignación =asigna a = 3y el resto se ignora. Es como (a = 1 + 2), 3 + 4.
+¿Por qué necesitamos un operador que descarte todo excepto la última expresión?
+
+A veces, la gente lo usa en construcciones más complejas para poner varias acciones en una línea.
+
+Por ejemplo:
+
+// three operations in one line
+for (a = 1, b = 3, c = a * b; a < 10; a++) {
+ ...
+}

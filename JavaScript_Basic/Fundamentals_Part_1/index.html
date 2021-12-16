@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentals Part1</title>
+</head>
+<body>
+    <script>
+        console.log("Hello, World!");
+        // let menssage,user,age;
+        // menssage="Hello";
+        // user="Anthony";
+        // age=12;
+        // _2da=2;
+        // alert(menssage);
+        // alert(user);
+        // alert(age);
+
+
+        // /*Diferencia entre var y let*/
+
+        // /*Var no tiene alcance de bloque, es decir son
+        // visibles a traves de bloque. Son de ambito global*/
+        // let edad=21;
+        // if(edad > 20){
+        //     var test = true;
+        // }
+        // console.log(test+" Es mayor a 20");
+        // alert(age);
+        // /*Let solo es visible en el bloque*/
+        // if (true) {
+        //     let test2 = true; // use "var" instead of "let"
+        // }
+        // alert(test2); // true, the variable lives after if3
+        // console.log(test2);
+        
+        /*Las variables obtienen el valor ignaorando el bucle.
+        Por ejemplo al mostrar la variable i esta tiene un valor de
+        10 es decir fuera del buque.*/
+        // for(var i=0; i<9; i++){
+        //     var one= 1;
+           
+        // }
+        // alert("Variable i: "+i);
+        // alert("Variable one: "+one)
+        
+        /*Tiene ambito de funcion, si se declara var dentro de una funcion
+        esta solo sera definida en la misma, caso contrario sera indefinida*/
+        // function sayHi() {
+        // if (true) {
+        //     var phrase = "Hello";
+        // }
+
+        // alert(phrase); // works
+        // }
+
+        // sayHi();
+        // alert(phrase); // ReferenceError: phrase is not defined
+        /*Var tolera redeclaraciones*/
+        // let user;
+        // let user; // SyntaxError: 'user' has already been declared
+
+        // var user = "Pete";
+        // var user = "John"; // this "var" does nothing (already declared)
+        // // ...it doesn't trigger an error
+
+        // alert(user); // John    
+        /*Se puede declarar debajo de su uso*/
+        // function sayHi() {
+        // phrase = "Hello";
+
+        // alert(phrase);
+
+        // var phrase;
+        // }
+        // sayHi();
+        /*Es lo mismo*/
+        // function sayHi() {
+        // var phrase;
+
+        // phrase = "Hello";
+
+        // alert(phrase);
+        // }
+        // sayHi();
+        /*Incluso asi, es lo mismo*/
+        // function sayHi() {
+        // phrase = "Hello"; // (*)
+
+        // if (false) {
+        //     var phrase;
+        // }
+
+        // alert(phrase);
+        // }
+        // sayHi();
+        /*Los var son izados o elevados a la parte superior de la funcion*/
+
+
+        /*Las declaraciones se levantan, pero las asignaciones no.*/
+        // function sayHi() {
+        // alert(phrase);
+
+        // var phrase = "Hello";
+        // }
+
+        // sayHi();
+
+        /*otra forma incorecta*/
+        // function sayHi() {
+        // var phrase; // declaration works at the start...
+
+        // alert(phrase); // undefined
+
+        // phrase = "Hello"; // ...assignment - when the execution reaches it.
+        // }
+
+        //sayHi();
+        /*Debido a que todas las var declaraciones se procesan al inicio de la función, 
+        podemos hacer referencia a ellas en cualquier lugar. 
+        Pero las variables están indefinidas hasta las asignaciones.*/
+        /*Debido a este inconveniente, se ha estandarizado que se delcaren
+        de forma correcta*/
+        /*
+        IIFE
+        En el pasado, como solo existía var, y no tiene visibilidad a nivel de bloque, 
+        los programadores inventaron una forma de emularlo. Lo que hicieron se
+        denominó "expresiones de función invocadas inmediatamente" (abreviado como IIFE).
+        Eso no es algo que debamos usar hoy en día, pero puede encontrarlos en scripts antiguos.
+
+        Un IIFE se ve así:
+        */
+        (function() {
+
+        var message = "Hello";
+
+        alert(message); // Hello
+
+        })();
+        
+        /*
+        Resumen
+        Hay dos diferencias principales en varcomparación con let/const:
+
+        var las variables no tienen alcance de bloque, su visibilidad está limitada a la función actual, o global, si se declara fuera de la función.
+        var las declaraciones se procesan al inicio de la función (inicio del script para globales).
+        Hay una diferencia menor más relacionada con el objeto global, que cubriremos en el próximo capítulo.
+
+        Estas diferencias varempeoran la letmayoría de las veces. Las variables a nivel de bloque son algo grandioso. Es por eso que letse introdujo en el estándar hace mucho tiempo y ahora es una forma importante (junto con const) de declarar una variable.
+
+
+        */
+        
+    </script>
+</body>
+</html>
