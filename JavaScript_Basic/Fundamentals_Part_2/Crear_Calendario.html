@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Operadorse ternarios</title>
+  </head>
+
+  <body>
+    <div class="container-main">
+      <nav class="nav-header">
+        <div class="logo-placeholder-img">
+          <img
+            class="logo-img"
+            src="assets/img/logo1.png"
+            alt="Autor: What Is Picture Perfect"
+          />
+        </div>
+        <div class="links-header">
+          <ol class="list-element">
+            <li><a href="#"> header link one </a></li>
+            <li><a href="#"> header link two </a></li>
+            <li><a href="#"> header link three</a></li>
+          </ol>
+        </div>
+      </nav>
+      <div class="container-header">
+          <div class="sub-content-header">
+            <p class="text-title-sub-content">Operador Ternario</p>
+            <p class="text-information-sub-content">
+              
+            </p>
+            <button class="button-header">Sign up</button>
+        </div>
+        <div class="placeholder-img">
+            <img class="img-header"
+              src="assets/img/img-header.png"
+              alt="Autor: Spenser Sembrat fuente: https://unsplash.com/"
+            />
+          </div>
+      </div>
+      <div class="container-content">
+        <h1>Operador Ternario</h1>
+        <br>
+            <p> 
+                  Hay una última parte de la sintaxis que queremos presentarle antes de que
+                  empiece a jugar con algunos ejemplos. El operador ternario o condicional
+                  es una pequeña parte de la sintaxis que prueba una condición y devuelve
+                  un valor / expresión si lo es true, y otro si lo es false; esto puede ser
+                  útil en algunas situaciones y puede ocupar mucho menos código que un
+                  if...elsebloque si tiene dos opciones que se eligen a través de una
+                  condición true/ false. El pseudocódigo se ve así:           
+            </p>
+        <br>
+        <h3>Sintaxis</h3>
+        <h4><strong>( condition ) ? run this code : run this code instead</strong></h4>
+        <br>
+        <label for="calendar">Select month: </label>
+        <select id="calendar">
+          <option value="February">February</option>
+          <option value="April">April</option>
+          <option value="June">June</option>
+          <option value="September">September</option>
+          <option value="November">November</option>
+        </select>
+
+        <h5></h5>
+        <ul>
+            
+        </ul>
+
+      </div>
+      <div class="container-footer">
+        <div class="footer" style="text-align: center">
+          Copyright &copysr; The Asanchezg96's Lading Page 2021.
+        </div>
+      </div>
+    </div>
+    <script>
+        const select = document.querySelector('select');
+        const list = document.querySelector('ul');
+        const h1 = document.querySelector('h5');
+
+        select.addEventListener('change', () => {
+        const choice = select.value;
+
+        let days = 31;
+        if (choice === 'February') {
+            days = 28;
+        } else if (choice === 'April' || choice === 'June' || choice === 'September'|| choice === 'November') {
+            days = 30;
+        }
+
+        createCalendar(days, choice);
+        });
+
+        function createCalendar(days, choice) {
+        list.innerHTML = '';
+        h1.textContent = choice;
+        for (let i = 1; i <= days; i++) {
+            const listItem = document.createElement('li');
+            listItem.textContent = i;
+            list.appendChild(listItem);
+        }
+        }
+
+        createCalendar(31,'January');
+      </script>
+  </body>
+</html>
+
