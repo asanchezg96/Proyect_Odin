@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadenas</title>
+</head>
+<body>
+    <h2 id="string1"></h2>
+    <h3 id="string2"></h3>
+    <hr>
+    <h1>Metodos de cadenas</h1>
+    <h2>Devuelve un caracter en funcion de un index o posicion de la variable dblSgl</h2>
+    <p id="charAt"></p>
+    <br>
+    <h1>JavaScript String charCodeAt ()</h1>
+    <h2>Devuelve un caracter en funcion de un index o posicion de la variable sglDbl</h2>
+    <p id="charCodeAt"></p>
+    <br>
+    <h1> JavaScript String concat()</h1>
+    <h2>El concat()método une dos o más cadenas.</h2>
+    <p id="concat"></p>
+    <br>
+    <h1> Búsqueda de cadenas de search()</h1>
+    <h2>El concat()método une dos o más cadenas.</h2>
+    <h3>El search()método devuelve el índice (posición) de una coincidencia.</h3>
+    <h4>	El search()método devuelve -1 si no se encuentra el valor.</h4>
+    <h5>El indexOf()método distingue entre mayúsculas y minúsculas.</h5>
+    <p id="search"></p>
+    <br>
+    <h1> JavaScript String indexOf ()</h1>
+    <h2>El indexOf()método devuelve la posición de la primera aparición de un valor especificado en una cadena.</h2>
+    <h3>El indexOf()método devuelve -1 si no se encuentra el valor.</h3>
+    <h4>El indexOf()método distingue entre mayúsculas y minúsculas.</h4>
+    <p id="indexOf"></p>
+
+    <script>
+        const sglDbl = 'Would you eat a "fish supper"?';
+        const dblSgl = "I'm feeling blue.";
+        console.log(sglDbl);
+        console.log(dblSgl);
+        document.getElementById("string1").innerHTML=sglDbl;
+        document.getElementById("string2").innerHTML=dblSgl;
+        document.getElementById("charAt").innerHTML=dblSgl.charAt(2);
+        document.getElementById("charCodeAt").innerHTML=sglDbl.charCodeAt(0);
+        document.getElementById("concat").innerHTML=sglDbl.concat("  "+dblSgl);
+        document.getElementById("search").innerHTML=sglDbl.search("Wou");
+        document.getElementById("indexOf").innerHTML=sglDbl.indexOf("ou", 3);
+
+
+    </script>
+</body>
+</html>
