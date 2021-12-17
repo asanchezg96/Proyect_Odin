@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condicionales</title>
+</head>
+<h1>Formulario de estado de animo</h1>
+
+<br>
+<hr>
+<label for="estadoAnimo">Select the weather type today: </label>
+<select id="estadoAnimo">
+    <option value="">--Escoja su estado de animo</option>
+    <option value="bien">Bien</option>
+    <option value="aburrido">Aburrido</option>
+    <option value="fueradeorbita">Desorientado</option>
+</select>
+<p></p>
+
+
+
+<body>
+    <script>
+        // Condicionales if else
+        const select = document.querySelector("select");
+        const para = document.querySelector("p");
+        select.addEventListener("change",estadoAnimo);
+
+         function estadoAnimo(){
+            const choice = select.value;
+            
+            if (choice==="bien"){
+                para.textContent="Esa es la actiud pelado";
+            }else if(choice==="aburrido"){
+                para.textContent="Sal a correr a la playa";
+            }else if(choice==="fueradeorbita"){
+                para.textContent= "Pide a Dios sabiduria para conllevar la situacion";
+            }else{
+                para.textContent==="";
+            }
+            
+        }
+
+
+
+        // let shoppingDone=false;
+        // let childsAllowance;
+        // if (shoppingDone === true){
+        //     childsAllowance=10;
+        // }else {
+        //     childsAllowance=5;
+        // }
+        // document.getElementById("operadores_logicos").innerHTML=childsAllowance;
+
+        /*Obtener el primer valor veraz de una lista de variables o expresiones.*/
+        /**/
+        // let firstName = false;
+        // let lastName = false;
+        // let nickName = "SuperCoder";
+
+        // alert( firstName || lastName || nickName || "Anonymous"); // SuperCoder
+        // false && alert("printed") ;
+        /*Evaluación de cortocircuito.*/
+        // true || alert("not printed");
+        // false || alert("printed");
+        // alert( true ) || alert("not printed");
+
+        // alert(2 || 3)
+        // alert(3 || 2)
+
+
+
+        // alert(3&&3)
+        // alert(2&&3)
+
+    </script>
+</body>
+</html>
