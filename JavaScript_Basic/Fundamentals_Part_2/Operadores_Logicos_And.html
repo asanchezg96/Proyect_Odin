@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Landing page</title>
+  </head>
+
+  <body>
+    <div class="container-main">
+      <nav class="nav-header">
+        <div class="logo-placeholder-img">
+          <img
+            class="logo-img"
+            src="assets/img/logo1.png"
+            alt="Autor: What Is Picture Perfect"
+          />
+        </div>
+        <div class="links-header">
+          <ul class="list-element">
+            <li><a href="#"> header link one </a></li>
+            <li><a href="#"> header link two </a></li>
+            <li><a href="#"> header link three</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container-header">
+          <div class="sub-content-header">
+            <p class="text-title-sub-content">This website is awesome</p>
+            <p class="text-information-sub-content">
+              This website has some subtext that goes here under the main title.
+              It is a smaller font and the color ia lower contrast.
+            </p>
+            <button class="button-header">Sign up</button>
+        </div>
+        <div class="placeholder-img">
+            <img class="img-header"
+              src="assets/img/img-header.png"
+              alt="Autor: Spenser Sembrat fuente: https://unsplash.com/"
+            />
+          </div>
+      </div>
+      <div class="container-content">
+        <div>
+            <div>
+                <h1>Operadores AND (&&), OR (||), NOT (!)</h1>
+                <hr>
+                <br>
+                <h1>Clima</h1>
+                <br>
+            </div>
+            <div>
+                <label for="clima">Select the weather type today: </label>
+                <select id="clima">
+                    <option value="">--Escoja el estado del clima para hoy</option>
+                    <option value="sunny">Soleado</option>
+                    <option value="nublado">Nublado</option>
+                    <option value="lluvioso">Lluvioso</option>
+                </select>
+                <h2></h2>
+            </div>
+        </div>
+      </div>
+      <div class="container-footer">
+        <div class="footer" style="text-align: center">
+          Copyright &copysr; The Asanchezg96's Lading Page 2021.
+        </div>
+      </div>
+    </div>
+    <script>
+        /*Si deses reducir condicionales, los operadores logicos
+        pueden ayudarte*/
+        //Ejemplo con operador &&
+        const select = document.querySelector("select");
+        const para = document.querySelector("h2",);
+        select.addEventListener("change",clima);
+
+        function clima(){
+            const choice = select.value;
+            let temperature= 85;
+            if (choice === "sunny" && temperature < 86) {
+                para.textContent = `It is ${temperature} degrees outside — nice and sunny. Let\'s go out to the beach, or the park, and get an ice cream.`;
+            } else if (choice === 'sunny' && temperature >= 86) {
+                para.textContent = `It is ${temperature} degrees outside — REALLY HOT! If you want to go outside, make sure to put some sunscreen on.`;
+            }
+        }
+
+    </script>
+  </body>
+</html>
