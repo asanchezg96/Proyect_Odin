@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores de comparacion</title>
+</head>
+<body>
+    <script>
+        /*Los operadores de comparacion pueden usarse para comprovar si una
+        variable es true o si existe, esto debido a que cualquier valor que no sea
+        false, undefined, null, 0, NaN o una cadena vacia('') devuelve true.*/
+        let cheese = 'Cheddar';
+
+        if (cheese) {
+        console.log('Yay! Cheese available for making cheese on toast.');
+        } else {
+        console.log('No cheese on toast for you today.');
+        }
+
+         /*En este ejemplo se reduce el codigo a menos lineas, ya que,
+         no es necesario poner ===true, debido a que implicitamente JavaScript
+         devuelve true a cualquer valor que no sea false*/
+        let shoppingDone = false;
+        let childsAllowance;
+
+        if (shoppingDone) { // don't need to explicitly specify '=== true'
+        childsAllowance = 10;
+        } else {
+        childsAllowance = 5;
+        }
+        console.log('Ejemplo del nino: Tiene una pension de:', childsAllowance, ' debido que no cumplio con la tarea');
+
+    </script>
+</body>
+</html>
