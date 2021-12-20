@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones anonimas</title>
+</head>
+<body>
+    <h1>Funciones anonimas</h1>
+    <hr>
+    <br>
+    <ol>
+        <li>
+            <h4>Funcion keloger</h4>
+            <p>Precione cualquier tecla!</p> 
+            <input id="cajaTexto"></input>
+            <br>
+            <p>
+                <strong>Tecla precionada:</strong>
+            </p>
+            <h5 id="telcasPrecionadas"></h5>
+        </li>
+        <li>
+            <h4>Funcion anonima corta</h4>
+            <p>Precione cualquier tecla!</p> 
+            <input id="cajaTexto2"></input>
+        </li>
+
+    </ol>
+    
+</body>
+    <script>
+        /*Ejemplo de funcion*/
+        const textBox = document.getElementById('cajaTexto');
+        
+        //Forma larga
+        function logKey(event) {
+        console.log(`Tecla precionada en caja 1 "${event.key}".`);
+        mostrarTlecasPrecionadas = document.getElementById('telcasPrecionadas').innerHTML=event.key;
+        }
+
+        textBox.addEventListener('keydown', logKey);
+        
+        //Funcion anonima
+        const textBox2=document.getElementById('cajaTexto2');
+        textBox2.addEventListener('keydown', function (event){
+            console.log(`Tecla precionada en caja 2"${event.key}."`);
+        });
+    </script>
+</html>
