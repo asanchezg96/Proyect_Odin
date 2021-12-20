@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alcance de funciones</title>
+    <script src="Alcance_Funciones/firts.js"></script>
+    <script src="Alcance_Funciones/second.js"></script>
+</head>
+<body>
+    <h1>Alcance de funciones</h1>
+    <p> las variables y otras cosas definidas dentro de la función están dentro de su propio alcance separado , lo que significa que están bloqueadas en sus propios compartimentos separados, inalcanzables desde el código fuera de las funciones.
+
+        El nivel superior fuera de todas sus funciones se denomina ámbito global . Los valores definidos en el ámbito global son accesibles desde cualquier lugar del código.
+        
+        JavaScript está configurado de esta manera por varias razones, pero principalmente debido a la seguridad y la organización. A veces, no desea que se pueda acceder a las variables desde cualquier lugar del código: los scripts externos a los que llama desde otro lugar podrían comenzar a alterar su código y causar problemas porque utilizan los mismos nombres de variable que otras partes del código. , provocando conflictos. Esto puede hacerse de forma maliciosa o simplemente por accidente.
+        
+        Por ejemplo, digamos que tiene un archivo HTML que está llamando a dos archivos JavaScript externos, y ambos tienen una variable y una función definidas que usan el mismo nombre:
+    </p>
+    <script>
+        greeting();
+    </script>
+    
+</body>
+</html>
