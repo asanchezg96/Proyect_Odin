@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones flechas</title>
+</head>
+<body>
+    <h1>Funciones Flechas</h1>
+    <p>Son avreviaciones en su sintexis al momento de crear una funcion,
+       en vez de colocar function(){} se omite y se coloca ()=>{}
+    </p>
+    <br>
+    <h2>Sintaxis: ()=>{}</h2>
+    <br>
+    <h4>Si la funcion solo tiene una linea se puede omitir las llaves <br> Sintaxis: ()=></h4>
+    <br>
+    <h4>Si la funcion tiene solo un argumento se puede omitir los parentecis <br> Sintaxis: =></h4>
+    <br>
+    <h4>Si la funcion tiene que devolver un valor se omite la palabra return <br> Sintaxis: => </h4>
+    <hr>
+    <ol>
+        <li>
+            <h4>Funcion keloger conbinada con la funcioncion anonima</h4>
+            <p>Precione cualquier tecla!</p> 
+            <input id="cajaTexto"></input>
+            
+        </li>
+        <li>
+            <h4>Ejemplo en vivo funcion flecha en keyloguer, se muestra por html</h4>
+            <input id="textBox" type="text"></input>
+            <div id="outputd"></div>
+        </li>
+    </ol>
+</body>
+    <script>
+        //Funcion flechas
+        // const textBox = document.getElementById('cajaTexto');
+        // textBox.addEventListener('keydown', (event)=>{
+        //     console.log(`Tecla precionada: "${event.key}."`);
+        // });
+        
+        /*Si la funcion solo tiene una linea se puede omitir las llaves*/
+        // const textBox = document.getElementById('cajaTexto');
+        // textBox.addEventListener('keydown', (event)=> console.log(`Tecla precionada: "${event.key}."`));
+        
+        /*Si la funcion tiene solo un argumento se puede omitir los parentecis*/
+        const textBox = document.getElementById('cajaTexto');
+        textBox.addEventListener('keydown', event=> console.log(`Tecla precionada: "${event.key}."`));
+        
+        /*Si la funcion necesita devolver un valor se puede omitir la palabra return*/
+        const numerosEnteros = [1,2,3,4];
+        const dobleNumerosEnteros = numerosEnteros.map( item => item * 2);
+        console.log('Numeros enteros:');
+        console.log(numerosEnteros);
+        console.log('El doble de numeros enteros:');
+        console.log(dobleNumerosEnteros);
+
+
+        /*Ejemplo*/
+        const textBox2 = document.querySelector("#textBox");
+        const output = document.querySelector("#outputd");
+
+        textBox.addEventListener('keydown', event => output.textContent = `You pressed "${event.key}".`);
+
+    </script>
+</html>
