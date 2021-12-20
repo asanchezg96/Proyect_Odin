@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Function scope example</title>
+</head>
+<body>
+    <section class="preview">
+
+  </section>
+  <script>
+    const names = ['Chris', 'Li Kang', 'Anne', 'Francesca', 'Mustafa', 'Tina', 'Bert', 'Jada']
+    const para = document.createElement('p');
+    
+    // Add your code here
+    const chooseName = ()=> {
+        let indiceRandom = Math.floor( Math.random()*names.length)
+        let valorRandom = names[indiceRandom]
+        return valorRandom;
+    };
+    para.innerHTML = chooseName();
+    console.log(chooseName())
+
+    // Don't edit the code below here!
+    const section = document.querySelector('section');
+    section.appendChild(para);
+  </script>
+</body>
+</html>
