@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Functions: Task 2</title>
+    <style>
+      p {
+        color: purple;
+        margin: 0.5em 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <section class="preview">
+
+    </section>
+
+    <canvas width="480" height="320">
+
+    </canvas>
+
+  </body>
+  <script>
+    const canvas = document.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
+
+    const x = 50;
+    const y = 60;
+    const width = 100;
+    const height = 75;
+    const color = 'blue';
+
+    // Add your code here
+    const drawRectangle = (x, y, width, height)=> {
+        //Dibuja un rectangulo relleno    
+        ctx.fillRect(x,y, width, height);
+        //Limpia una zona de rectangulo
+        ctx.clearRect(x,y, width, height);
+        //Dibuja el contorno de un rectangulo
+        ctx.strokeRect(x,y, width, height);
+        };
+    canvas.innerHTML = drawRectangle(x,y, width, height);
+    // Don't edit the code below here!
+
+    const section = document.querySelector('section');
+    section.appendChild(canvas);
+  </script>
+
+</html>
