@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Function scope mejorado</title>
+</head>
+<body>
+    <section class="preview">
+
+  </section>
+  <script>
+    const names = ['Chris', 'Li Kang', 'Anne', 'Francesca', 'Mustafa', 'Tina', 'Bert', 'Jada']
+    const para = document.createElement('p');
+    
+    // Add your code here
+    //Limites
+    let num_Aleatorio = Math.random();
+    let long_Cadena = names.length;
+    let indice_Random;
+
+    //Funcion para calcular los limitesdel array
+    const random= (num_aleatorio, long_cadena) => {
+        let indiceRandom = Math.floor(num_Aleatorio*long_cadena);
+        return indiceRandom;
+    }
+    indice_Random= random(num_Aleatorio, long_Cadena);
+    console.log(indice_Random);
+
+    //Funcion escoge un valor aleatorio del array y lo muestra
+    const chooseName = (array_names, indice_random)=> {
+        let valorRandom = array_names[indice_random];
+        return valorRandom;
+    };
+
+
+    //Agrega la funcion al DOM html
+    para.innerHTML = chooseName(names, indice_Random);
+    console.log(chooseName(names, indice_Random))
+
+    // Don't edit the code below here!
+    const section = document.querySelector('section');
+    section.appendChild(para);
+  </script>
+</body>
+</html>
