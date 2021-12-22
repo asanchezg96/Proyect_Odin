@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Function library example</title>
+  <style>
+    input {
+      font-size: 2em;
+      margin: 10px 1px 0;
+    }
+
+    p{
+        color: brown;
+    }
+  </style>
+</head>
+<body>
+    <h1>Funcione matematicas</h1>
+    <hr>
+    <h3>Ingrese un numero!</h3> 
+    <input id="cajaTexto" class="numberInput" type="text"></input>
+    <p class="para"></p>
+    <br>
+    <br>
+    <h4>
+        <strong>Numero ingresado:</strong>
+    </h4>
+    
+    <h3 id="telcasPrecionadas"></h3>
+    <br>
+    <p id="validacionNumeros"></p>
+    <hr>
+    <h2>Numero al cuadrado</h2>
+    <h3 id="num_Cuadrado"></h3>
+    <hr>
+    <br>
+    <h2>Numero al cubo</h2>
+    <h3 id="num_Cubo"></h3>
+    <hr>
+    <br>
+    <h2>Numero factorial</h2>
+    <h3 id="num_Factorial"></h3>
+
+  <script>
+    //Variables
+    const input = document.querySelector('.numberInput');
+    const para = document.querySelector('.para');
+    const DOM_Cuadrado = document.getElementById('num_Cuadrado');
+    const DOM_Cubo = document.getElementById('num_Cubo');
+    const DOM_Factorial = document.getElementById('num_Factorial');
+    
+
+    function squared(num) {
+    return num * num;
+    }
+
+    function cubed(num) {
+    return num * num * num;
+    }
+
+    function factorial(num) {
+    if (num < 0) return undefined;
+    if (num == 0) return 1;
+    let x = num - 1;
+    while (x > 1) {
+        num *= x;
+        x--;
+    }
+    return num;
+    }
+
+    input.addEventListener('change', ()=> {
+        const num = parseInt(input.value);
+        if(isNaN(num)){
+            para.textContent= 'Solo numeros!';
+            
+        }else{
+            DOM_Cuadrado.textContent= ` ${num} cuadrado es ${squared(num)}`;
+            DOM_Cubo.textContent= ` ${num} cubo es ${cubed(num)}`;
+            DOM_Factorial.textContent= ` ${num} factorial es ${factorial(num)}`;
+        }
+    });
+  </script>
+</body>
+</html>
