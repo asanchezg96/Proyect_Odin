@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <button onclick="showMessage()">Promt!</button>
+    <button onclick="showMessage2()">Confirm!</button>
+    <button onclick="valoresPredeterminados('Hola')">Valores Predeterminados!</button>
+    <button onclick="valoresPredeterminadosAlternarivos()">Valores Predeterminados Alternativos!</button>
+    <button onclick="showCount()">Operador null!</button>
+
+    <script>
+    function checkAge(age) {
+        if (age >= 18) {
+            return true;
+        } else {
+            return confirm('Do you have permission from your parents?');
+        }
+    }
+
+    let age = prompt('How old are you?', 18);
+    if ( checkAge(age) ) {
+        alert( 'Access granted' );
+    }else{
+        alert( 'Access denied' );
+    }
+    //Funcion sin retornar valor, hace que se cierre la funcion
+    // function showMovie(age) {
+    // if ( checkAge(age) ) {
+    //     return;
+    // }
+
+    // alert( "Showing you the movie" ); // (*)
+    // // ...
+    // }
+
+    //Los nombres de una funcion se definen con un vervo
+    // "get…" - devolver un valor,
+    // "calc…" - calcular algo,
+    // "create…" - crear algo,
+    // "check…" - comprobar algo y devolver un booleano, etc.
+    // Con los prefijos en su lugar, un vistazo al nombre de una función permite comprender qué tipo de trabajo hace y qué tipo de valor devuelve.
+
+    // Una función, una acción
+    // Una función debe hacer exactamente lo que sugiere su nombre, nada más.
+
+    // Dos acciones independientes generalmente merecen dos funciones, incluso si generalmente se llaman juntas (en ese caso, podemos hacer una tercera función que llame a esas dos).
+
+    // Algunos ejemplos de incumplimiento de esta regla:
+
+    // getAge- Sería malo si muestra una alertcon la edad (solo debería obtener).
+    // createForm - Sería malo si modifica el documento, agregando un formulario (solo debe crearlo y regresar).
+    // checkPermission- Sería malo si muestra el access granted/deniedmensaje (solo debe realizar la verificación y devolver el resultado).
+    </script>
+</body>
+</html>
