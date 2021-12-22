@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Function library example</title>
+  <style>
+    input {
+      font-size: 2em;
+      margin: 10px 1px 0;
+    }
+
+    p{
+        color: brown;
+    }
+  </style>
+</head>
+<body>
+    <h1>Funcione matematicas</h1>
+    <hr>
+    <h3>Ingrese un numero!</h3> 
+    <input id="cajaTexto" class="numberInput" type="text"></input>
+    <button type="button"  onclick="getValueInput()"> 
+        Calcular 
+    </button>
+    <br>
+    <br>
+    <h4>
+        <strong>Numero ingresado:</strong>
+    </h4>
+
+    <h3 id="telcasPrecionadas"></h3>
+    <br>
+    <p id="validacionNumeros"></p>
+    <hr>
+    <h2>Numero al cuadrado</h2>
+    <h3 id="num_Cuadrado"></h3>
+    <hr>
+    <br>
+    <h2>Numero al cubo</h2>
+    <h3 id="num_Cubo"></h3>
+    <hr>
+    <br>
+    <h2>Numero factorial</h2>
+    <h3 id="num_Factorial"></h3>
+
+  <script>
+    //Variables
+    const input = document.querySelector('.numberInput');
+    let DOM_Num_Cuadrado ;
+    let DOM_Num_Cubo ;
+    let DOM_Num_Factorial ;
+    const error ='Ingrese solo numeros';
+    let num_Base = document.getElementById("cajaTexto").value; 
+    let mostrarTlecasPrecionadas;
+    let para;
+    let cuadrado;
+    let cubo;
+    let factorial;
+
+    //Funciones registro de eventos
+    const  registro_Teclas = (event) =>{
+        console.log(`Tecla precionada en caja 1 "${event.key}".`);
+        mostrarTlecasPrecionadas = document.getElementById('telcasPrecionadas').innerHTML=event.key;
+    }
+    input.addEventListener('keydown', registro_Teclas);
+
+    //Funcion pra validar numeros en el input
+    const isNum = ()=> {
+        if (!validacion_Numeros){
+            return true;
+        }
+    }
+
+    const validacion_Numeros= ()=> {
+        
+        if (isNaN(input)){ 
+            para = document.getElementById('validacionNumeros').innerHTML=error;
+        }
+        return false;
+    };
+
+    //Funciones matematicas
+    const num_Cuadrado = (num)=>{
+        return num*num;
+    }
+
+    const num_Cubo = (num)=> { return num*num*num }
+
+    const num_Factorial = (num) => {
+        
+        if (num < 0) return undefined;
+        if (num== 0) return 1;
+        
+        let num_enesimo = num - 1;
+        while (num_enesimo> 1){
+            num *=num_enesimo;
+            num_enesimo--; 
+        }
+        return num;
+    }
+
+    const getValueInput= ()=> {
+        let num_Base = parseInt(document.getElementById("cajaTexto").value);
+        console.log(`Numero base: "${num_Base}"`);
+        //Calculo matematico
+        console.log(num_Cuadrado(num_Base));
+        console.log(num_Cubo(num_Base));
+        console.log(num_Factorial(num_Base));
+        DOM_Num_Cuadrado = document.getElementById('num_Cuadrado').innerHTML=num_Cuadrado(num_Base);
+        DOM_Num_Cubo = document.getElementById('num_Cubo').innerHTML=num_Cubo(num_Base);
+        DOM_Num_Factorial = document.getElementById('num_Factorial').innerHTML=num_Factorial(num_Base);
+    }
+  </script>
+</body>
+</html>
