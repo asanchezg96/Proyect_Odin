@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcion expresiva</title>
+</head>
+<body>
+    <script>
+        //Se puede acceder a ella apartir desde donde se declara
+        /*La creacion de la funcion ocurre en el contexto de la asignacion */
+        let sayHi = function() {
+        alert( "Hello" );
+        };
+        /*La función es un valor
+Reiteremos: no importa cómo se cree la función, una función es un valor. Ambos ejemplos anteriores almacenan una función en la sayHivariable.
+
+Incluso podemos imprimir ese valor usando alert:
+
+function sayHi() {
+  alert( "Hello" );
+}
+
+alert( sayHi ); // shows the function code
+Tenga en cuenta que la última línea no ejecuta la función, porque no hay paréntesis después sayHi. Hay lenguajes de programación donde cualquier mención del nombre de una función provoca su ejecución, pero JavaScript no es así.
+
+En JavaScript, una función es un valor, por lo que podemos tratarla como un valor. El código anterior muestra su representación de cadena, que es el código fuente.
+
+Seguramente, una función es un valor especial, en el sentido de que podemos llamarlo like sayHi().
+
+Pero sigue siendo un valor. Entonces podemos trabajar con él como con otros tipos de valores.
+
+Podemos copiar una función a otra variable:
+
+function sayHi() {   // (1) create
+  alert( "Hello" );
+}
+
+let func = sayHi;    // (2) copy
+
+func(); // Hello     // (3) run the copy (it works)!
+sayHi(); // Hello    //     this still works too (why wouldn't it)*/
+    </script>
+</body>
+</html>
