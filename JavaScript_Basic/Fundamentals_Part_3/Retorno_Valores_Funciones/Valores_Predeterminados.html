@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <button onclick="showMessage()">Promt!</button>
+    <button onclick="showMessage2()">Confirm!</button>
+    <button onclick="valoresPredeterminados('Hola')">Valores Predeterminados!</button>
+    <button onclick="valoresPredeterminadosAlternarivos()">Valores Predeterminados Alternativos!</button>
+    <button onclick="showCount()">Operador null!</button>
+
+    <script>
+        const showMessage= ()=>{
+            prompt("Ingrese:")
+        }
+
+        const showMessage2 = ()=> {
+            confirm('Confirmacion?')
+        }
+        const valoresPredeterminados = ( a, b= 'Valor predeterminado')=> {
+            alert(a +' : '+ b);
+        }
+        const valoresPredeterminadosAlternarivos= (a) =>{
+            // if(a === undefined){
+            //     a= 'Valor predeterminado sin ingresar';
+            // }
+            // if text is undefined or otherwise falsy, set it to 'empty'
+             a = a || 'empy';
+            alert(a);
+        }
+        function showCount(count) {
+        // if count is undefined or null, show "unknown"
+        alert(count ?? "empy");
+        }
+    </script>
+</body>
+</html>
