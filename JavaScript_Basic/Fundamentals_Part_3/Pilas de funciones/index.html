@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilas de funciones</title>
+</head>
+<body>
+    <p>
+        Pila de llamadas de JavaScript
+
+        Resumen : en este tutorial, aprenderá sobre la pila de llamadas de JavaScript, que es un mecanismo para realizar un seguimiento de las llamadas a funciones.
+
+        Introducción a la pila de llamadas de JavaScript
+        El motor de JavaScript utiliza una pila de llamadas para administrar los contextos de ejecución : el contexto de ejecución global y los contextos de ejecución de funciones.
+
+        La pila de llamadas funciona según el principio LIFO, es decir, el último en entrar es el primero en salir.
+
+        Cuando ejecuta un script, el motor JavaScript crea un contexto de ejecución global y lo coloca en la parte superior de la pila de llamadas.
+
+        Siempre que se llama a una función, el motor JavaScript crea un contexto de ejecución de función para la función, lo coloca en la parte superior de la pila de llamadas y comienza a ejecutar la función.
+
+        Si una función llama a otra función, el motor de JavaScript crea un nuevo contexto de ejecución de función para la función que se está llamando y lo coloca en la parte superior de la pila de llamadas.
+
+        Cuando se completa la función actual, el motor de JavaScript la saca de la pila de llamadas y reanuda la ejecución donde la dejó en la última lista de código.
+
+        El script se detendrá cuando la pila de llamadas esté vacía.
+        <br>
+        Ejemplo de pila de llamadas de JavaScript
+        Vea el siguiente script:
+
+        function add(a, b) {
+            return a + b;
+        }
+
+        function average(a, b) {
+            return add(a, b) / 2;
+        }
+
+        let x = average(10, 20);
+
+        <br>
+        Idioma del código:  JavaScript  ( javascript )
+        Cuando se ejecuta el script, el motor de JavaScript coloca el contexto de ejecución global (indicado por main()o global()función en la pila de llamadas.
+
+        Pila de llamadas de JavaScript - principal
+        El contexto de ejecución global entra en la fase de creación y pasa a la fase de ejecución.
+
+        El motor de JavaScript ejecuta la llamada a la average(10, 20)función y crea un contexto de ejecución de función para la average()función y lo coloca en la parte superior de la pila de llamadas:
+
+        Pila de llamadas de JavaScript - paso 2
+        El motor de JavaScript comienza a ejecutar el average()ya que está en la parte superior de la pila de llamadas.
+
+        La average()función llama a la add()función. En este punto, el motor de JavaScript crea otro contexto de ejecución de función para la add()función y lo coloca en la parte superior de la pila de llamadas:
+
+        Pila de llamadas de JavaScript - paso 3
+        El motor de JavaScript ejecuta la add()función y la saca de la pila de llamadas:
+
+        Pila de llamadas de JavaScript - paso 4
+        En este punto, la average()función está en la parte superior de la pila de llamadas, el motor JavaScript la ejecuta y la saca de la pila de llamadas.
+
+        Pila de llamadas de JavaScript - paso 5
+        Ahora, la pila de llamadas está vacía, por lo que el script deja de ejecutarse:
+
+        Pila de llamadas de JavaScript - pila vacía
+        La siguiente imagen ilustra el estado general de la pila de llamadas en todos los pasos:
+
+        Pila de llamadas de JavaScript
+        Desbordamiento de pila
+        La pila de llamadas tiene un tamaño fijo, dependiendo de la implementación del entorno de host, ya sea el navegador web o Node.js.
+
+        Si el número de contextos de ejecución excede el tamaño de la pila, se producirá un desbordamiento de la pila.
+        <br>
+        Por ejemplo, cuando ejecuta una función recursiva que no tiene condición de salida, resultará en un error de desbordamiento de pila:
+        <br>
+        function foo() {
+            foo();
+        }
+
+        foo(); // stack overflow
+        Idioma del código:  JavaScript  ( javascript )
+        JavaScript asincrónico
+        JavaScript es el lenguaje de programación de un solo subproceso. El motor de JavaScript tiene solo una pila de llamadas, por lo que solo puede hacer una cosa a la vez.
+
+        Al ejecutar un script, el motor JavaScript ejecuta el código de arriba a abajo, línea por línea. En otras palabras, es sincrónico.
+
+        Asincrónico es lo opuesto a sincrónico, lo que significa que ocurre al mismo tiempo. Entonces, ¿cómo lleva JavaScript tareas asincrónicas como devoluciones de llamada, promesas y async / await ? Aquí es donde el bucle de eventos entra en la imagen que cubriremos en el próximo tutorial .
+
+        En este tutorial, ha aprendido sobre la pila de llamadas de JavaScript que ayuda a realizar un seguimiento de los contextos de ejecución o las llamadas a funciones.
+    </p>
+    <script>
+        function foo() {
+        foo();
+    }
+
+    foo(); // stack overflow
+    </script>
+</body>
+</html>
