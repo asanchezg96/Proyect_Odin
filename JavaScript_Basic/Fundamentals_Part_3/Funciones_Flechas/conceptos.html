@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones flechas</title>
+</head>
+<body>
+    <p>
+        Funciones de flecha, conceptos básicos
+        Existe otra sintaxis muy simple y concisa para crear funciones, que a menudo es mejor que las expresiones de función.
+
+        Se llama "funciones de flecha", porque se ve así:
+
+        let func = (arg1, arg2, ..., argN) => expression;
+        Esto crea una función funcque acepta argumentos arg1..argN, luego evalúa el expressionen el lado derecho con su uso y devuelve su resultado.
+
+        En otras palabras, es la versión más corta de:
+
+        let func = function(arg1, arg2, ..., argN) {
+        return expression;
+        };
+        Veamos un ejemplo concreto:
+
+        let sum = (a, b) => a + b;
+
+        /* This arrow function is a shorter form of:
+
+        let sum = function(a, b) {
+        return a + b;
+        };
+        */
+
+        alert( sum(1, 2) ); // 3
+        Como puede, ver (a, b) => a + bsignifica una función que acepta dos argumentos llamados ay b. Tras la ejecución, evalúa la expresión a + by devuelve el resultado.
+
+        Si solo tenemos un argumento, entonces los paréntesis alrededor de los parámetros se pueden omitir, haciéndolo aún más corto.
+
+        Por ejemplo:
+
+        let double = n => n * 2;
+        // roughly the same as: let double = function(n) { return n * 2 }
+
+        alert( double(3) ); // 6
+        Si no hay argumentos, los paréntesis estarán vacíos (pero deberían estar presentes):
+
+        let sayHi = () => alert("Hello!");
+
+        sayHi();
+        Las funciones de flecha se pueden utilizar de la misma forma que las expresiones de función.
+
+        Por ejemplo, para crear dinámicamente una función:
+
+        let age = prompt("What is your age?", 18);
+
+        let welcome = (age < 18) ?
+        () => alert('Hello') :
+        () => alert("Greetings!");
+
+        welcome();
+        Las funciones de las flechas pueden parecer desconocidas y poco legibles al principio, pero eso cambia rápidamente a medida que los ojos se acostumbran a la estructura.
+
+        Son muy convenientes para acciones simples de una línea, cuando somos demasiado perezosos para escribir muchas palabras.
+        Funciones de flecha multilínea
+        Los ejemplos anteriores tomaron argumentos de la izquierda =>y evaluaron la expresión del lado derecho con ellos.
+
+        A veces necesitamos algo un poco más complejo, como múltiples expresiones o declaraciones. También es posible, pero debemos encerrarlos entre llaves. Luego usa un normal returndentro de ellos.
+
+        Como esto:
+
+        let sum = (a, b) => {  // the curly brace opens a multiline function
+        let result = a + b;
+        return result; // if we use curly braces, then we need an explicit "return"
+        };
+
+        alert( sum(1, 2) ); // 3
+        Más por venir
+        Aquí elogiamos las funciones de flecha por su brevedad. ¡Pero eso no es todo!
+
+        Las funciones de flecha tienen otras características interesantes.
+
+        Para estudiarlos en profundidad, primero debemos conocer algunos otros aspectos de JavaScript, por lo que volveremos a las funciones de flecha más adelante en el capítulo Funciones de flecha revisadas .
+
+        Por ahora, ya podemos usar funciones de flecha para acciones de una línea y devoluciones de llamada.
+
+        Resumen
+        Las funciones de flecha son útiles para frases breves. Vienen en dos sabores:
+
+        Sin llaves: (...args) => expression- el lado derecho es una expresión: la función la evalúa y devuelve el resultado.
+        Con llaves: (...args) => { body }- los corchetes nos permiten escribir múltiples declaraciones dentro de la función, pero necesitamos un explícito returnpara devolver algo.
+
+    </p>
+    <br>
+    <script>
+        let ask = (question, yes, no) =>{
+            if (confirm(question)) yes();
+            else no();
+        } 
+        ask(
+            "Do you agree?",
+            function() { alert("You agreed."); },
+            function() { alert("You canceled the execution."); }
+            );
+    </script>
+</body>
+</html>
