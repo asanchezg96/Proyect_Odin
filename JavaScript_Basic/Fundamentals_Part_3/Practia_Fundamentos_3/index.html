@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio practica 3</title>
+</head>
+<body>
+    <script>
+        const num = 3;
+        const num2 = 2;
+        const string = 'hola SOY Anthony';
+        //1
+        function add7 ( num ) {
+            return num + 7 ;
+        }
+        console.log(`${num} + 7 = ${add7(num)} `);
+
+        //2
+        function multiply ( num, num2 ){
+            return num * num2;
+        }
+        console.log(`${num} * ${num2} = ${multiply(num, num2)} `);
+
+        //3
+        function capitalize ( string ) {
+            const firtLetter = string.charAt(0);
+            const firtLetterUpperCase = firtLetter.toUpperCase();
+            const subString = string.substr(1,string.lengt);
+            const subStringToLower = subString.toLowerCase(); 
+            //const convStringLowerCase = toLoweCase(string.substr(0, string.length));
+            //+convStringLowerCase
+            return  firtLetterUpperCase + subStringToLower;
+        }
+        console.log(
+            `Devuelve la primera letra en Mayusculas de la cadena:\n${string}.\nPrimera letra convertida de cadena: ${capitalize(string)}`
+        );
+
+        //4
+        function lastLetter (string){
+            const lastLetter = string.charAt(string.length-1);
+            return lastLetter;
+        }
+        console.log(
+            `Devuelve la ultima letra de la cadena:\n${string}.\nUltima letra: ${lastLetter(string)}.`
+        );
+    </script>
+</body>
+</html>
