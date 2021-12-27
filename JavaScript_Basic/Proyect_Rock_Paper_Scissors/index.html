@@ -4,23 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Proyect rock papel scissors</title>
 </head>
 <body>
-    <div>
+    <nav id="nav">
+        <h1>Rock, Paper, Scissors</h1>
         <button class="playComputer" onclick="computerPlay()">
-            Play
+            Play computer
         </button>
+    </nav>
+    <div id="content">
+        <div class="playercontent">
+            <div>
+                <h2> Player</h2>
+            </div>
+            <div>
+                <h3> Score: </h3>
+            </div>
+            <div>
+                <div>
+                    <h5>Rock</h5>
+                    <img src="" alt="">
+                </div>
+                <div>
+                    <h5>Paper</h5>
+                    <img src="" alt="">
+                </div>
+                <div>
+                    <h5>Scissors</h5>
+                    <img src="" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="cpucontent">
+            <div>
+                <h5>Rock</h5>
+                <img src="" alt="">
+            </div>
+            <div>
+                <h5>Paper</h5>
+                <img src="" alt="">
+            </div>
+            <div>
+                <h5>Scissors</h5>
+                <img src="" alt="">
+            </div>
+        </div>
     </div>
-    <script >
-        const playComputer= document.querySelector('.playComputer');
-    
-        function computerPlay (){
-        const namesOptions = ['piedra', 'papel', 'tijeras'];
-        let indiceRandom = Math.floor(Math.random()*namesOptions.length);
-        let chooseNamesOptions = namesOptions[indiceRandom];
-        console.log(chooseNamesOptions);
-        }
+    <div id="fotter"></div>
+    <script src="main.js">
+
     </script>
+    <footer>
+        By Asanchez
+        <img src="" alt="">
+    </footer>
 </body>
 </html>
