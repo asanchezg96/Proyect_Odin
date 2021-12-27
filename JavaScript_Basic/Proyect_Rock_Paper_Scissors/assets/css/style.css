@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    padding: 0;
 }
 nav {
     background-color: rgb(12, 10, 10);
@@ -9,4 +8,31 @@ nav {
     align-items: center;
     align-content: center;
     flex-direction: column;
+}
+h2, h3,  h5{
+    text-align: center;
+}
+#content{
+    background-color: tomato;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.playercpucontent{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.options {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: 30px;
+}
+.items{
+    height: 60px;
+    width: 60px;
+    border: 5px solid black; 
+    border-radius: 30px;
 }
