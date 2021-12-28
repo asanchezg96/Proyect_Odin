@@ -4,8 +4,9 @@
  const scoreCPU = document.querySelector('.scorec');
  const playRoundChoose= document.querySelector('.playRoundChoose');
  let playerSelectiong;
- let scoreplayer =0;
- let scorecpu =0;
+ let scoreplayer=0 ;
+ let scorecpu=0 ;
+ let round=0;
  let msg;
 
 // Funcion para el cpu
@@ -35,49 +36,97 @@
     //let computerSelection= computerPlay ();
     //let playerSelection = 'scissor';
     if (playerSelection === 'rock' && computerSelection === 'rock'){
-        msg= console.log('rock '+ 'rock: ');
+        msg= 'Player choose: '+'rock'+ ' ----- ' + 'CPU choose: '+'rock ';
+        playRoundChoose.innerHTML=msg;
         return false;
     }else if (playerSelection === 'rock' && computerSelection === 'paper'){
-        msg= console.log('rock '+ 'paper: ');
+        msg= 'Player choose: '+'rock '+ ' ----- ' + 'CPU choose: '+ 'paper';
+        playRoundChoose.innerHTML=msg;
         return false;
     }else if (playerSelection === 'rock' && computerSelection === 'scissor'){
-        msg= console.log('rock '+ 'scissor: ');
+        msg= 'Player choose: '+ 'rock '+ ' ----- ' + 'CPU choose: '+ 'scissor';
+        playRoundChoose.innerHTML=msg;
         return true;
     }else if (playerSelection === 'paper' && computerSelection === 'rock'){
-        msg = console.log('paper '+ 'rock: ');
+        msg = 'Player choose: '+'paper '+ ' ----- ' + 'CPU choose: '+ 'rock';
+        playRoundChoose.innerHTML=msg;
         return true;
     }else if (playerSelection === 'paper' && computerSelection === 'paper'){
-        msg= console.log('paper '+ 'paper: ');
+        msg= 'Player choose: '+ 'paper '+ ' ----- ' + 'CPU choose: '+ 'paper';
+        playRoundChoose.innerHTML=msg;
         return false;
     }else if (playerSelection === 'paper' && computerSelection === 'scissor'){
-        msg= console.log('paper '+ 'scissor: ');
+        msg= 'Player choose: '+ 'paper '+ ' ----- ' + 'CPU choose: '+ 'scissor';
+        playRoundChoose.innerHTML=msg;
         return false;
     }else if (playerSelection === 'scissor' && computerSelection === 'rock'){
-        msg= console.log('scissor '+ 'rock: ');
+        msg= 'Player choose: '+ 'scissor '+ ' ----- ' + 'CPU choose: ' + 'rock';
+        playRoundChoose.innerHTML=msg;
         return false;
     }else if (playerSelection === 'scissor' && computerSelection === 'paper'){
-        msg= console.log('scissor '+ 'paper: ');
+        msg= 'Player choose: '+ 'scissor '+ ' ----- ' + 'CPU choose: ' + 'paper';
+        playRoundChoose.innerHTML=msg;
         return true;
     }else if (playerSelection === 'scissor' && computerSelection === 'scissor'){
-        msg= console.log('scissor '+ 'scissor: ');
+        msg= 'Player choose: '+ 'scissor '+ ' ----- ' + 'CPU choose: ' + 'scissor';
+        playRoundChoose.innerHTML=msg;
         return false;
     }
  }
 
+ //Funcion para verificar las rondas del juego
+ function checkRound(round){
+    if(round ===5){
+        scoreplayer=0;
+        scorecpu=0;
+        return true;
+    }else{
+        return false;
+    }
+}
 
+//Eventos de click en botones de opciones 
   var selectionPlayerRock = document.getElementById('selectionPlayerRock').onclick= function (){
     playerSelectiong='rock';
-    playRound(playerSelectiong, computerPlay());
+    console.log(checkRound(round));
+    if(checkRound(round)){
+        round=0;
+        scoreplayer =0;
+        scorecpu =0;
+        playRoundChoose.innerHTML="Se acabo la partida";
+        scorePlayer.innerHTML="0";
+        scoreCPU.innerHTML="0";
+
+
+    }else{
+        round=round+1;
+        console.log(round);
+        playRound(playerSelectiong, computerPlay());
+    }
  }
 
  var selectionPlayerPaper = document.getElementById('selectionPlayerPaper').onclick= function (){
     playerSelectiong='paper';
-    playRound(playerSelectiong, computerPlay());
+    if(checkRound(round)){
+        playRoundChoose.innerHTML="Se acabo la partida";
+
+    }else{
+        playRound(playerSelectiong, computerPlay());
+    }
  }
+
  var selectionPlayerScissor = document.getElementById('selectionPlayerScissor').onclick= function (){
+
     playerSelectiong='scissor';
-    playRound(playerSelectiong, computerPlay());
+    if(checkRound(round)){
+        playRoundChoose.innerHTML="Se acabo la partida";
+
+    }else{
+        playRound(playerSelectiong, computerPlay());
+    }
  }
+
+ 
 
 
 
