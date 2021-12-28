@@ -1,11 +1,14 @@
 
  //Funcion playComputer, escoge un valor aleatorio entre piedra, papel o tijera.
- const playComputer= document.querySelector('.playComputer');
- const playRoundB = document.querySelector('.playRoundB');
- const playerSelectiong = 'rock';
+ const scorePlayer= document.querySelector('.scorep');
+ const scoreCPU = document.querySelector('.scorec');
+ const playRoundChoose= document.querySelector('.playRoundChoose');
+ let playerSelectiong;
  let scoreplayer =0;
  let scorecpu =0;
+ let msg;
 
+// Funcion para el cpu
  function computerPlay (){
  const namesOptions = ['rock', 'paper', 'scissor'];
  let indiceRandom = Math.floor(Math.random()*namesOptions.length);
@@ -13,46 +16,70 @@
  return chooseNamesOptions;
  }
 
-//  //Funcion para jugar una sola ronda
- function playRound(playerSelection, playerSelection){
-    let winner = '';
-    // if (score==3){
-    //     return console.log('You winner!')
-    // }else{
-        if(checkWinnerRound(playerSelection, playerSelection)){
+//Funcion para jugar una sola ronda
+ function playRound(playerSelection, computerSelection){
+        if(checkWinnerRound(playerSelection, computerSelection)){
             scoreplayer=scoreplayer+1;
+            scorePlayer.innerHTML=scoreplayer;
             return console.log(winner='You winner this round!'+ 'Score: '+ scoreplayer);
         }else {
             scorecpu = scorecpu+1;
-            return console.log(winner='You winner this round!'+ 'Score: '+ scorecpu);
+            scoreCPU.innerHTML=scorecpu;
+            return console.log(winner='You lose this round! Winner CPU!'+ 'Score: '+ scorecpu);
             
         }
-    // }
-    
  }
 
+ //Funcion para verificar el ganador de una ronda
  function checkWinnerRound(playerSelection, computerSelection){
-    let computerSelectiong= computerPlay ();
-    let pSelection = 'scissor';
-    if (pSelection === 'rock' && computerSelectiong === 'rock'){
-        return console.log('rock '+ 'rock: '+false);
-    }else if (pSelection === 'rock' && computerSelectiong === 'paper'){
-        return console.log('rock '+ 'paper: '+false);
-    }else if (pSelection === 'rock' && computerSelectiong === 'scissor'){
-        return console.log('rock '+ 'scissor: '+true);
-    }else if (pSelection === 'paper' && computerSelectiong === 'rock'){
-        return console.log('paper '+ 'rock: '+true);
-    }else if (pSelection === 'paper' && computerSelectiong === 'paper'){
-        return console.log('paper '+ 'paper: '+false);
-    }else if (pSelection === 'paper' && computerSelectiong === 'scissor'){
-        return console.log('paper '+ 'scissor: '+false);
-    }else if (pSelection === 'scissor' && computerSelectiong === 'rock'){
-        return console.log('scissor '+ 'rock: '+false);
-    }else if (pSelection === 'scissor' && computerSelectiong === 'paper'){
-        return console.log('scissor '+ 'paper: '+true);
-    }else if (pSelection === 'scissor' && computerSelectiong === 'scissor'){
-        return console.log('scissor '+ 'scissor: '+false);
+    //let computerSelection= computerPlay ();
+    //let playerSelection = 'scissor';
+    if (playerSelection === 'rock' && computerSelection === 'rock'){
+        msg= console.log('rock '+ 'rock: ');
+        return false;
+    }else if (playerSelection === 'rock' && computerSelection === 'paper'){
+        msg= console.log('rock '+ 'paper: ');
+        return false;
+    }else if (playerSelection === 'rock' && computerSelection === 'scissor'){
+        msg= console.log('rock '+ 'scissor: ');
+        return true;
+    }else if (playerSelection === 'paper' && computerSelection === 'rock'){
+        msg = console.log('paper '+ 'rock: ');
+        return true;
+    }else if (playerSelection === 'paper' && computerSelection === 'paper'){
+        msg= console.log('paper '+ 'paper: ');
+        return false;
+    }else if (playerSelection === 'paper' && computerSelection === 'scissor'){
+        msg= console.log('paper '+ 'scissor: ');
+        return false;
+    }else if (playerSelection === 'scissor' && computerSelection === 'rock'){
+        msg= console.log('scissor '+ 'rock: ');
+        return false;
+    }else if (playerSelection === 'scissor' && computerSelection === 'paper'){
+        msg= console.log('scissor '+ 'paper: ');
+        return true;
+    }else if (playerSelection === 'scissor' && computerSelection === 'scissor'){
+        msg= console.log('scissor '+ 'scissor: ');
+        return false;
     }
  }
- //console.log(checkWinner(playerSelectiong, computerSelectiong));
+
+
+  var selectionPlayerRock = document.getElementById('selectionPlayerRock').onclick= function (){
+    playerSelectiong='rock';
+    playRound(playerSelectiong, computerPlay());
+ }
+
+ var selectionPlayerPaper = document.getElementById('selectionPlayerPaper').onclick= function (){
+    playerSelectiong='paper';
+    playRound(playerSelectiong, computerPlay());
+ }
+ var selectionPlayerScissor = document.getElementById('selectionPlayerScissor').onclick= function (){
+    playerSelectiong='scissor';
+    playRound(playerSelectiong, computerPlay());
+ }
+
+
+
+
 
