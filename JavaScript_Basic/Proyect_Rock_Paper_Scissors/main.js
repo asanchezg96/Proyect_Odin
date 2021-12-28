@@ -76,7 +76,7 @@
 
  //Funcion para verificar las rondas del juego
  function checkRound(round){
-    if(round ===5){
+    if( round ===5 ){
         scoreplayer=0;
         scorecpu=0;
         return true;
@@ -85,9 +85,36 @@
     }
 }
 
+function checkWinner(scoreplayer, scorecpu){
+    if (scoreplayer>scorecpu){
+        console.log( 'You Winner');
+        return true;
+    }else{
+        console.log('You Lose, try again!');
+        return false;
+    }
+}
+
 //Eventos de click en botones de opciones 
   var selectionPlayerRock = document.getElementById('selectionPlayerRock').onclick= function (){
     playerSelectiong='rock';
+    if( checkRound(round) ){
+        round=0;
+        scoreplayer =0;
+        scorecpu =0;
+        playRoundChoose.innerHTML="Se acabo la partida";
+        scorePlayer.innerHTML="0";
+        scoreCPU.innerHTML="0";
+        checkWinner(scoreplayer, scorecpu);
+    }else{
+        round=round+1;
+        console.log('Round: '+round);
+        playRound(playerSelectiong, computerPlay());
+    }
+ }
+
+ var selectionPlayerPaper = document.getElementById('selectionPlayerPaper').onclick= function (){
+    playerSelectiong='paper';
     console.log(checkRound(round));
     if(checkRound(round)){
         round=0;
@@ -96,8 +123,6 @@
         playRoundChoose.innerHTML="Se acabo la partida";
         scorePlayer.innerHTML="0";
         scoreCPU.innerHTML="0";
-
-
     }else{
         round=round+1;
         console.log(round);
@@ -105,23 +130,19 @@
     }
  }
 
- var selectionPlayerPaper = document.getElementById('selectionPlayerPaper').onclick= function (){
-    playerSelectiong='paper';
-    if(checkRound(round)){
-        playRoundChoose.innerHTML="Se acabo la partida";
-
-    }else{
-        playRound(playerSelectiong, computerPlay());
-    }
- }
-
  var selectionPlayerScissor = document.getElementById('selectionPlayerScissor').onclick= function (){
-
     playerSelectiong='scissor';
+    console.log(checkRound(round));
     if(checkRound(round)){
+        round=0;
+        scoreplayer =0;
+        scorecpu =0;
         playRoundChoose.innerHTML="Se acabo la partida";
-
+        scorePlayer.innerHTML="0";
+        scoreCPU.innerHTML="0";
     }else{
+        round=round+1;
+        console.log(round);
         playRound(playerSelectiong, computerPlay());
     }
  }
