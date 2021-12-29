@@ -48,6 +48,18 @@ h2, h3,  h5{
 }
 
 
+.items:hover{
+    transition:  0.3s ;
+    box-shadow: 0 0 30px 3px;
+    
+}
+
+.items:active{
+    transition:  0.001s ;
+    box-shadow: 1px 10px 60px 100px rgb(255, 255, 255);;
+}
+
+
 .playRound{
     
     padding: 5%;
