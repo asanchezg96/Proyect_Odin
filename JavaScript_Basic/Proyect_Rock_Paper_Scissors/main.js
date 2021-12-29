@@ -3,6 +3,7 @@
  const scorePlayer= document.querySelector('.scorep');
  const scoreCPU = document.querySelector('.scorec');
  const playRoundChoose= document.querySelector('.playRoundChoose');
+ const tagWinner = document.querySelector('.tagWinner');
  let playerSelectiong;
  let scoreplayer=0 ;
  let scorecpu=0 ;
@@ -77,8 +78,6 @@
  //Funcion para verificar las rondas del juego
  function checkRound(round){
     if( round ===5 ){
-        scoreplayer=0;
-        scorecpu=0;
         return true;
     }else{
         return false;
@@ -87,10 +86,15 @@
 
 function checkWinner(scoreplayer, scorecpu){
     if (scoreplayer>scorecpu){
+        console.log('Score player: '+ scoreplayer + ' > '+ 'Score CPU: '+ scorecpu);
+        
         console.log( 'You Winner');
+        tagWinner.innerHTML= 'You Winner!';
         return true;
     }else{
+        console.log('Score player: '+ scoreplayer + ' < '+ 'Score CPU: '+ scorecpu);
         console.log('You Lose, try again!');
+        tagWinner.innerHTML= 'You Lose, try again!';
         return false;
     }
 }
@@ -99,14 +103,16 @@ function checkWinner(scoreplayer, scorecpu){
   var selectionPlayerRock = document.getElementById('selectionPlayerRock').onclick= function (){
     playerSelectiong='rock';
     if( checkRound(round) ){
-        round=0;
-        scoreplayer =0;
-        scorecpu =0;
-        playRoundChoose.innerHTML="Se acabo la partida";
+        console.log(checkWinner(scoreplayer, scorecpu));
+        playRoundChoose.innerHTML="The game is over!";
         scorePlayer.innerHTML="0";
         scoreCPU.innerHTML="0";
-        checkWinner(scoreplayer, scorecpu);
+        scoreplayer=0;
+        scorecpu=0;
+        round=0;
+        
     }else{
+        tagWinner.innerHTML= '-';
         round=round+1;
         console.log('Round: '+round);
         playRound(playerSelectiong, computerPlay());
@@ -117,15 +123,17 @@ function checkWinner(scoreplayer, scorecpu){
     playerSelectiong='paper';
     console.log(checkRound(round));
     if(checkRound(round)){
-        round=0;
-        scoreplayer =0;
-        scorecpu =0;
-        playRoundChoose.innerHTML="Se acabo la partida";
+        console.log(checkWinner(scoreplayer, scorecpu));
+        playRoundChoose.innerHTML="The game is over!";
         scorePlayer.innerHTML="0";
         scoreCPU.innerHTML="0";
+        scoreplayer=0;
+        scorecpu=0;
+        round=0;
     }else{
+        tagWinner.innerHTML= '-';
         round=round+1;
-        console.log(round);
+        console.log('Round: '+round);
         playRound(playerSelectiong, computerPlay());
     }
  }
@@ -134,15 +142,17 @@ function checkWinner(scoreplayer, scorecpu){
     playerSelectiong='scissor';
     console.log(checkRound(round));
     if(checkRound(round)){
-        round=0;
-        scoreplayer =0;
-        scorecpu =0;
-        playRoundChoose.innerHTML="Se acabo la partida";
+        console.log(checkWinner(scoreplayer, scorecpu));
+        playRoundChoose.innerHTML="The game is over!";
         scorePlayer.innerHTML="0";
         scoreCPU.innerHTML="0";
+        scoreplayer=0;
+        scorecpu=0;
+        round=0;
     }else{
+        tagWinner.innerHTML= '-';
         round=round+1;
-        console.log(round);
+        console.log('Round: '+round);
         playRound(playerSelectiong, computerPlay());
     }
  }
